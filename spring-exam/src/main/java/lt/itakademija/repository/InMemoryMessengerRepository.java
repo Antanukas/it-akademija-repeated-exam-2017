@@ -1,24 +1,32 @@
 package lt.itakademija.repository;
 
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
 import lt.itakademija.model.command.CreateContact;
 import lt.itakademija.model.command.CreateMessage;
 import lt.itakademija.model.command.UpdateContact;
 import lt.itakademija.model.query.Contact;
 import lt.itakademija.model.query.Message;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
-
-import java.util.*;
 
 /**
  * Created by mariusg on 2017.03.19.
  */
+@Repository
 public class InMemoryMessengerRepository implements MessengerRepository {
 
     private final List<Contact> contacts = new LinkedList<>();
 
     private final Map<Contact, List<Message>> contactsToMessagesMap = new HashMap<>();
 
+    
+    @Autowired
     private final SequenceGenerator sequenceGenerator;
 
     @Autowired
