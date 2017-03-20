@@ -13,6 +13,7 @@ import java.util.*;
 /**
  * Created by mariusg on 2017.03.19.
  */
+@Repository
 public class InMemoryMessengerRepository implements MessengerRepository {
 
     private final List<Contact> contacts = new LinkedList<>();
@@ -21,7 +22,6 @@ public class InMemoryMessengerRepository implements MessengerRepository {
 
     private final SequenceGenerator sequenceGenerator;
 
-    @Autowired
     public InMemoryMessengerRepository(SequenceGenerator sequenceGenerator) {
         this.sequenceGenerator = sequenceGenerator;
     }

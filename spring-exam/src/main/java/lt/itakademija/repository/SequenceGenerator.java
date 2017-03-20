@@ -1,8 +1,12 @@
 package lt.itakademija.repository;
 
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
+
 /**
  * Created by mariusg on 2017.03.19.
  */
+@Component
 public interface SequenceGenerator {
 
     /**

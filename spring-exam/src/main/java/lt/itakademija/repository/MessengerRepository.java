@@ -8,9 +8,12 @@ import lt.itakademija.model.query.Message;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 /**
  * Created by mariusg on 2017.03.19.
  */
+@Repository
 public interface MessengerRepository {
 
     /**

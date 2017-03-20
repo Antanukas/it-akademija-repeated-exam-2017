@@ -1,7 +1,11 @@
 package lt.akademija.jpaexam;
 
+import java.sql.Date;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import lt.akademija.jpaexam.core.Krepselis;
 
 @SpringBootApplication
 public class TestData {
@@ -10,8 +14,8 @@ public class TestData {
         /*
          * Replace this code with construction code for your entity
          */
-        Object yourObject = new Object();
-        return yourObject;
+        Krepselis krepselis = new Krepselis();
+        return krepselis;
     }
 
     public static void main(String[] args) {
