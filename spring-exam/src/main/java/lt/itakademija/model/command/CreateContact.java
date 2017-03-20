@@ -1,13 +1,17 @@
 package lt.itakademija.model.command;
 
+import org.springframework.stereotype.Service;
+
 /**
  * Created by mariusg on 2017.03.19.
  */
+@Service
 public final class CreateContact {
 
     private String username;
 
     private String name;
+
 
     public String getUsername() {
         return username;
