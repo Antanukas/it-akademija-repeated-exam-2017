@@ -31,7 +31,7 @@ public class RestServicesTask {
 
     private static TestRestTemplate restTemplate;
 
-    private static String uri = "http://localhost:9092/spring-exam/webapi/messenger";
+    private static String uri = "http://localhost:8080/spring-exam/webapi/messenger";
 
     @BeforeClass
     public static void setUp() {
