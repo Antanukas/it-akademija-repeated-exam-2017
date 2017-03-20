@@ -13,15 +13,19 @@ import java.util.*;
 /**
  * Created by mariusg on 2017.03.19.
  */
+@Repository
 public class InMemoryMessengerRepository implements MessengerRepository {
 
+    @Autowired
     private final List<Contact> contacts = new LinkedList<>();
 
+    @Autowired
     private final Map<Contact, List<Message>> contactsToMessagesMap = new HashMap<>();
 
+    @Autowired
     private final SequenceGenerator sequenceGenerator;
 
-    @Autowired
+
     public InMemoryMessengerRepository(SequenceGenerator sequenceGenerator) {
         this.sequenceGenerator = sequenceGenerator;
     }
@@ -32,7 +36,8 @@ public class InMemoryMessengerRepository implements MessengerRepository {
         final Long id = sequenceGenerator.getNext();
         final Contact contact = new Contact(id,
                                             createContact.getUsername(),
-                                            createContact.getName());contacts.add(contact);
+                                            createContact.getName());
+        contacts.add(contact);
         contactsToMessagesMap.put(contact, new LinkedList<>());
         return id;
         // @formatter:on
