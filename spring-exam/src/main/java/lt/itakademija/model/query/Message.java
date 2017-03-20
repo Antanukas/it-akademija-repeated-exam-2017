@@ -1,9 +1,11 @@
 package lt.itakademija.model.query;
 
+
 /**
  * Created by mariusg on 2017.03.19.
  */
 public final class Message {
+
 
     private Long id;
 
