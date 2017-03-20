@@ -32,7 +32,8 @@ public class InMemoryMessengerRepository implements MessengerRepository {
         final Long id = sequenceGenerator.getNext();
         final Contact contact = new Contact(id,
                                             createContact.getUsername(),
-                                            createContact.getName());contacts.add(contact);
+                                            createContact.getName());
+        contacts.add(contact);
         contactsToMessagesMap.put(contact, new LinkedList<>());
         return id;
         // @formatter:on

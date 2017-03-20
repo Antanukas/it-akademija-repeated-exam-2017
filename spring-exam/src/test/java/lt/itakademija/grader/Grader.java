@@ -1,6 +1,8 @@
 package lt.itakademija.grader;
 
 
+import org.springframework.beans.BeansException;
+
 import java.math.BigDecimal;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -38,7 +40,7 @@ public class Grader {
     }
 
     public interface GradedBody {
-        void graded() throws Exception;
+        void graded() throws Exception, BeansException;
     }
 
 }
