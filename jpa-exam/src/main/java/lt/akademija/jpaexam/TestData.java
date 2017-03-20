@@ -1,5 +1,6 @@
 package lt.akademija.jpaexam;
 
+import lt.akademija.jpaexam.core.ProductCartEntity;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -10,7 +11,7 @@ public class TestData {
         /*
          * Replace this code with construction code for your entity
          */
-        Object yourObject = new Object();
+        ProductCartEntity yourObject = new ProductCartEntity();
         return yourObject;
     }
 
