@@ -1,12 +1,12 @@
 package lt.itakademija.model.command;
 
+
 /**
  * Created by mariusg on 2017.03.19.
  */
 public final class CreateContact {
 
     private String username;
-
     private String name;
 
     public String getUsername() {

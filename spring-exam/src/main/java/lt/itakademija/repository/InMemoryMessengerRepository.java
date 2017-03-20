@@ -1,11 +1,13 @@
 package lt.itakademija.repository;
 
+import lt.itakademija.model.Id;
 import lt.itakademija.model.command.CreateContact;
 import lt.itakademija.model.command.CreateMessage;
 import lt.itakademija.model.command.UpdateContact;
 import lt.itakademija.model.query.Contact;
 import lt.itakademija.model.query.Message;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 import java.util.*;
@@ -13,12 +15,15 @@ import java.util.*;
 /**
  * Created by mariusg on 2017.03.19.
  */
+@Component
+@Repository
 public class InMemoryMessengerRepository implements MessengerRepository {
 
     private final List<Contact> contacts = new LinkedList<>();
 
     private final Map<Contact, List<Message>> contactsToMessagesMap = new HashMap<>();
 
+    @Autowired
     private final SequenceGenerator sequenceGenerator;
 
     @Autowired
@@ -27,14 +32,18 @@ public class InMemoryMessengerRepository implements MessengerRepository {
     }
 
     @Override
-    public Long createContact(CreateContact createContact) {
-        // @formatter:off
+    public Id createContact(CreateContact createContact) {
+//        @formatter:off
         final Long id = sequenceGenerator.getNext();
         final Contact contact = new Contact(id,
-                                            createContact.getUsername(),
-                                            createContact.getName());contacts.add(contact);
+                createContact.getUsername(),
+                createContact.getName());
+        contacts.add(contact);
         contactsToMessagesMap.put(contact, new LinkedList<>());
-        return id;
+
+        Id idReturn = new Id(id);
+
+        return idReturn;
         // @formatter:on
     }
 
@@ -63,13 +72,16 @@ public class InMemoryMessengerRepository implements MessengerRepository {
     }
 
     @Override
-    public Long createMessage(Long contactId, CreateMessage createMessage) {
+    public Id createMessage(Long contactId, CreateMessage createMessage) {
         Contact contact = findContactById(contactId);
         List<Message> messages = contactsToMessagesMap.get(contact);
 
         final Long id = sequenceGenerator.getNext();
         messages.add(new Message(id, createMessage.getText()));
-        return id;
+
+        Id idReturn = new Id(id);
+
+        return idReturn;
     }
 
     @Override

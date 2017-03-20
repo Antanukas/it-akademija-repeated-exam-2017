@@ -1,5 +1,6 @@
 package lt.itakademija.repository;
 
+import lt.itakademija.model.Id;
 import lt.itakademija.model.command.CreateContact;
 import lt.itakademija.model.command.CreateMessage;
 import lt.itakademija.model.command.UpdateContact;
@@ -19,7 +20,7 @@ public interface MessengerRepository {
      * @param createContact contact data
      * @return id
      */
-    Long createContact(CreateContact createContact);
+    Id createContact(CreateContact createContact);
 
     /**
      * Deletes a contact.
@@ -58,7 +59,7 @@ public interface MessengerRepository {
      * @param createMessage message data
      * @return id
      */
-    Long createMessage(Long contactId, CreateMessage createMessage);
+    Id createMessage(Long contactId, CreateMessage createMessage);
 
     /**
      * Returns all messages sent to a particular contact.
