@@ -1,16 +1,19 @@
 package lt.itakademija.repository;
 
+import lt.itakademija.model.Id;
 import lt.itakademija.model.command.CreateContact;
 import lt.itakademija.model.command.CreateMessage;
 import lt.itakademija.model.command.UpdateContact;
 import lt.itakademija.model.query.Contact;
 import lt.itakademija.model.query.Message;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 /**
  * Created by mariusg on 2017.03.19.
  */
+@Repository
 public interface MessengerRepository {
 
     /**
@@ -19,7 +22,7 @@ public interface MessengerRepository {
      * @param createContact contact data
      * @return id
      */
-    Long createContact(CreateContact createContact);
+    Id createContact(CreateContact createContact);
 
     /**
      * Deletes a contact.
@@ -58,7 +61,7 @@ public interface MessengerRepository {
      * @param createMessage message data
      * @return id
      */
-    Long createMessage(Long contactId, CreateMessage createMessage);
+    Id createMessage(Long contactId, CreateMessage createMessage);
 
     /**
      * Returns all messages sent to a particular contact.
