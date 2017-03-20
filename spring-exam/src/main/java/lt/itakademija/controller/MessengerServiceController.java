@@ -30,6 +30,7 @@ public class MessengerServiceController {
 
     public List<Contact> getContacts() {
         throw new UnsupportedOperationException("not implemented");
+    	
     }
 
     public Contact getContact(Long contactId) {

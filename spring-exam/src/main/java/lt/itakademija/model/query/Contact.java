@@ -2,9 +2,12 @@ package lt.itakademija.model.query;
 
 import java.util.Objects;
 
+import org.springframework.stereotype.Component;
+
 /**
  * Created by mariusg on 2017.03.19.
  */
+
 public final class Contact {
 
     private Long id;
