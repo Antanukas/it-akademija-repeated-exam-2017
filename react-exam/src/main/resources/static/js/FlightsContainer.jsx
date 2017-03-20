@@ -26,6 +26,7 @@ onHandleDelete : function(){
     axios
     .delete('/api/flights/1')
     .then(function(response){
+      console.log(response);
       getFlights(self);
     })
     .catch(function(err){

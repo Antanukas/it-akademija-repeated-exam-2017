@@ -1,5 +1,8 @@
 package lt.itakademija.model.query;
 
+import org.hibernate.validator.constraints.NotBlank;
+
+import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
 /**
@@ -7,10 +10,16 @@ import java.util.Objects;
  */
 public final class Contact {
 
+    @NotNull
+    @NotBlank
     private Long id;
 
+    @NotNull
+    @NotBlank
     private String username;
 
+    @NotNull
+    @NotBlank
     private String name;
 
     public Contact(Long id, String username, String name) {
