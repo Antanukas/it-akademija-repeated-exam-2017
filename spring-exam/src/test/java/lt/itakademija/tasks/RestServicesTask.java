@@ -12,6 +12,8 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.*;
 import org.springframework.web.client.RestTemplate;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -25,6 +27,7 @@ import static org.springframework.http.RequestEntity.method;
 /**
  * Created by mariusg on 2016.12.19.
  */
+
 public class RestServicesTask {
 
     private static final Logger logger = LoggerFactory.getLogger(RestServicesTask.class);

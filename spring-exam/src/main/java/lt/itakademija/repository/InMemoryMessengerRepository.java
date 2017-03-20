@@ -1,24 +1,32 @@
 package lt.itakademija.repository;
 
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import lt.itakademija.model.Id;
 import lt.itakademija.model.command.CreateContact;
 import lt.itakademija.model.command.CreateMessage;
 import lt.itakademija.model.command.UpdateContact;
 import lt.itakademija.model.query.Contact;
 import lt.itakademija.model.query.Message;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
-
-import java.util.*;
 
 /**
  * Created by mariusg on 2017.03.19.
  */
+@Repository
 public class InMemoryMessengerRepository implements MessengerRepository {
 
     private final List<Contact> contacts = new LinkedList<>();
 
     private final Map<Contact, List<Message>> contactsToMessagesMap = new HashMap<>();
 
+    @Autowired
     private final SequenceGenerator sequenceGenerator;
 
     @Autowired
@@ -27,22 +35,22 @@ public class InMemoryMessengerRepository implements MessengerRepository {
     }
 
     @Override
-    public Long createContact(CreateContact createContact) {
-        // @formatter:off
+    public Id createContact(CreateContact createContact) {
         final Long id = sequenceGenerator.getNext();
+        final Id tempid = new Id(id);
+        tempid.getId();
         final Contact contact = new Contact(id,
-                                            createContact.getUsername(),
-                                            createContact.getName());contacts.add(contact);
+                createContact.getUsername(),
+                createContact.getName());
+        contacts.add(contact);
         contactsToMessagesMap.put(contact, new LinkedList<>());
-        return id;
-        // @formatter:on
+        return tempid;
     }
 
     @Override
     public void deleteContact(Long contactId) {
         Contact contact = findContactById(contactId);
         contacts.remove(contact);
-
         contactsToMessagesMap.remove(contact);
     }
 
@@ -63,20 +71,19 @@ public class InMemoryMessengerRepository implements MessengerRepository {
     }
 
     @Override
-    public Long createMessage(Long contactId, CreateMessage createMessage) {
+    public Id createMessage(Long contactId, CreateMessage createMessage) {
         Contact contact = findContactById(contactId);
         List<Message> messages = contactsToMessagesMap.get(contact);
-
         final Long id = sequenceGenerator.getNext();
+        final Id tempid = new Id(id);
         messages.add(new Message(id, createMessage.getText()));
-        return id;
+        return tempid;
     }
 
     @Override
     public List<Message> getMessages(Long contactId) {
         Contact contact = findContactById(contactId);
         List<Message> messages = contactsToMessagesMap.get(contact);
-
         return messages != null ? Collections.unmodifiableList(messages) : Collections.emptyList();
     }
 
@@ -86,9 +93,6 @@ public class InMemoryMessengerRepository implements MessengerRepository {
                 return contact;
             }
         }
-
         throw new RuntimeException("Contact not found by id: " + contactId);
     }
-
-
 }

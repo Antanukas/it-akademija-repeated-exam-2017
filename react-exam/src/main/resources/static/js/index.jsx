@@ -1,9 +1,7 @@
-var App = React.createClass({
-  render: function() {
-    return (
-      <HelloWorldComponent />
-    );
+var NoMatch = React.createClass({
+  render: function () {
+    return <div>Route did not match</div>;
   }
 });
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(routes, document.getElementById("root"));

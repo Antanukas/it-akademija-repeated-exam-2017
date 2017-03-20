@@ -1,5 +1,6 @@
 package lt.akademija.jpaexam;
 
+import lt.akademija.jpaexam.core.ShoppingCart;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -10,8 +11,8 @@ public class TestData {
         /*
          * Replace this code with construction code for your entity
          */
-        Object yourObject = new Object();
-        return yourObject;
+        ShoppingCart myShoppingCart = new ShoppingCart();
+        return myShoppingCart;
     }
 
     public static void main(String[] args) {
