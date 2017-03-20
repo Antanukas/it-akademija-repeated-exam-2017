@@ -20,7 +20,7 @@ import java.util.List;
  * Created by mariusg on 2017.03.19.
  */
 @RestController
-@RequestMapping(value = "webapi/messenger")
+@RequestMapping(value = "spring-exam/webapi/messenger")
 @Api(value = "Message Service Controller")
 public class MessengerServiceController {
 
