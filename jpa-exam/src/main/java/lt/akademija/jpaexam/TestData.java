@@ -3,15 +3,17 @@ package lt.akademija.jpaexam;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import lt.akademija.jpaexam.core.Examiner;
+
 @SpringBootApplication
 public class TestData {
 
-    public Object getNewEntity1() {
+    public Examiner getNewEntity1() {
         /*
          * Replace this code with construction code for your entity
          */
-        Object yourObject = new Object();
-        return yourObject;
+        Examiner myLibrary = new Examiner();
+        return myLibrary;
     }
 
     public static void main(String[] args) {
