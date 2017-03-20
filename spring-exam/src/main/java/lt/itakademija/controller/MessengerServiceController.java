@@ -10,9 +10,12 @@ import lt.itakademija.repository.MessengerRepository;
 
 import java.util.List;
 
+import org.springframework.stereotype.Controller;
+
 /**
  * Created by mariusg on 2017.03.19.
  */
+@Controller
 public class MessengerServiceController {
 
     private final MessengerRepository repository;
