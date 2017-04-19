@@ -13,14 +13,41 @@ public class ItemEntity implements UpdatableEntity {
     @GeneratedValue(strategy= GenerationType.AUTO)
     public Long id;
 
-    @ManyToOne
-    public ShoppingCartEntity cart;
-
     @NotNull
     public String nameOfItem;
 
-    @NotNull
-    public Double price;
+    public double price;
+
+    @ManyToOne
+    public ShoppingCartEntity cart;
+
+    public void setId(Long id){
+        this.id = id;
+    }
+
+    public String getNameOfItem(){
+        return nameOfItem;
+    }
+
+    public void setNameOfItem(String nameOfItem){
+        this.nameOfItem = nameOfItem;
+    }
+
+    public double getPrice(){
+        return price;
+    }
+
+    public void setPrice(double price){
+        this.price = price;
+    }
+
+    public ShoppingCartEntity getCart(){
+        return cart;
+    }
+
+    public void setCart(ShoppingCartEntity cart){
+        this.cart = cart;
+    }
 
     @Override
     public Long getId() {
@@ -33,20 +60,8 @@ public class ItemEntity implements UpdatableEntity {
     }
 
     @Override
-    public void setString(String nameOfItem) {
-        this.nameOfItem = nameOfItem;
+    public void setString(String s) {
+        this.nameOfItem = s;
     }
 
-    public Double getPrice(){
-        return price;
-    }
-    public void setPrice(){
-        this.price = price;
-    }
-    public ShoppingCartEntity getCart(){
-        return cart;
-    }
-    public void setCart(ShoppingCartEntity cart){
-        this.cart = cart;
-    }
 }

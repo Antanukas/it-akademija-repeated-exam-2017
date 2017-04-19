@@ -1,7 +1,4 @@
 var FlightsListViewComponent = React.createClass({
-  delete : function(){
-    this.props.onHandleDelete(this.props.id);
-  },
 
   render: function() {
     var array = [];
@@ -16,6 +13,8 @@ var FlightsListViewComponent = React.createClass({
           flightNumber={flight.flightNumber}
           company={flight.company}
           status={flight.status}
+          markForRemove={props.markForRemove}
+          remove={props.remove}
         />
       );
     });
@@ -55,10 +54,6 @@ var FlightsListViewComponent = React.createClass({
                   <tbody>
                     {array}
                   </tbody>
-
-                  <tfoot>
-                    <button type="button" onClick={this.delete} id={'delete-button' + this.props.id} className='btn btn-danger'>Ištrinti</button>
-                  </tfoot>
                 </table>
             </div>
     );

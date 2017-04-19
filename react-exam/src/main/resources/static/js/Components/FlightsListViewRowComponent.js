@@ -1,36 +1,37 @@
 var FlightsListViewRowComponent = React.createClass({
 
     getInitialState: function() {
-      return {bgColor: default};
+      return {backgroundColor: default};
     },
 
-    onHandleClick : function(event){
-      this.setState({ bgColor: 'red' });
-      return function(){
-      this.props.onHandleDelete(this.props.id)};
+    changeColor: function(){
+        this.setState({color: ""})
     },
 
   render: function() {
     return (
-                    <tr id={this.props.id} style={{backgroundColor:this.state.bgColor}}>
-                      <th href={"#deleteButton" + this.props.id} onClick={this.onHandleClick} id={'delete-button-' + this.props.id} data-toggle="button">
-                        Id
-                      </th>
-                      <th>
-                        Data
-                      </th>
-                      <th>
-                        Laikas
-                      </th>
-                      <th>
-                        Skrydžio nr.
-                      </th>
-                      <th>
-                        Įmonė
-                      </th>
-                      <th>
-                        Skrydžio statusas
-                      </th>
+                    <tr style={backgroundColor: this.state.color}>
+                      <td>
+                        {props.id}
+                      </td>
+                      <td>
+                        {props.date}
+                      </td>
+                      <td>
+                        {props.time}
+                      </td>
+                      <td>
+                        {props.flightNumber}
+                      </td>
+                      <td>
+                        {props.company}
+                      </td>
+                      <td>
+                        {props.status}
+                      </td>
+                      <td>
+                        <button onClick={onHandleClick}>Pasirinkti trinamus elementus</button>
+                      </td>
                     </tr>
     );
   }

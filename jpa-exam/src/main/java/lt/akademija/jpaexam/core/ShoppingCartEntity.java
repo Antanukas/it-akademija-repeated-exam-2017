@@ -12,11 +12,30 @@ public class ShoppingCartEntity implements UniqueEntityWithAssociation {
     @GeneratedValue(strategy= GenerationType.AUTO)
     public Long id;
 
-    @OneToMany(mappedBy="cart", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy="cart", cascade = {CascadeType.REMOVE, CascadeType.PERSIST}, fetch = FetchType.EAGER)
     public Collection<ItemEntity> items;
 
-    public Double sum;
+    public double sum;
 
+    public void setId(Long id){
+        this.id = id;
+    }
+
+    public double getSum() {
+        return sum;
+    }
+
+    public void setSum(double sum){
+        this.sum = sum;
+    }
+
+    public Collection<ItemEntity> getItems(){
+        return items;
+    }
+
+    public void setItems (Collection<ItemEntity> items){
+        this.items = items;
+    }
 
     @Override
     public Long getId() {
@@ -28,10 +47,4 @@ public class ShoppingCartEntity implements UniqueEntityWithAssociation {
         return items;
     }
 
-    public Double getSum() {
-        return sum;
-    }
-    public void setSum(Double sum){
-        this.sum = sum;
-    }
 }

@@ -12,10 +12,6 @@ public class TestData {
     public ShoppingCartEntity getNewEntity1() {
         ShoppingCartEntity myShoppingBasket = new ShoppingCartEntity();
 
-        ItemEntity milk = new ItemEntity();
-        milk.setString("Rokiškio");
-        milk.setCart(myShoppingBasket);
-
         return myShoppingBasket;
     }
 
