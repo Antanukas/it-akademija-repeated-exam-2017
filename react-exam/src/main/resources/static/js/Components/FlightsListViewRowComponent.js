@@ -1,11 +1,20 @@
 var FlightsListViewRowComponent = React.createClass({
 
     getInitialState: function() {
-      return {backgroundColor: default};
+        return {
+            background: {backgroundColor: default},
+            marked: false
+        };
     },
 
-    changeColor: function(){
-        this.setState({color: ""})
+    changeColor: function () {
+        if (this.state.marked){
+            this.setState({background: {backgroundColor: default}})
+            this.setState({marked: !this.state.marked})
+        } else {
+            this.setState({background: {backgroundColor: "red"}})
+            this.setState({marked: !this.state.marked})
+        }
     },
 
   render: function() {

@@ -13,7 +13,6 @@ public class ItemEntity implements UpdatableEntity {
     @GeneratedValue(strategy= GenerationType.AUTO)
     public Long id;
 
-    @NotNull
     public String nameOfItem;
 
     public double price;
