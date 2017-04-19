@@ -1,17 +1,18 @@
 package lt.akademija.jpaexam;
 
+import lt.akademija.jpaexam.core.ItemEntity;
+import lt.akademija.jpaexam.core.ShoppingCartEntity;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.stereotype.Repository;
 
 @SpringBootApplication
 public class TestData {
 
-    public Object getNewEntity1() {
-        /*
-         * Replace this code with construction code for your entity
-         */
-        Object yourObject = new Object();
-        return yourObject;
+    public ShoppingCartEntity getNewEntity1() {
+        ShoppingCartEntity myShoppingBasket = new ShoppingCartEntity();
+
+        return myShoppingBasket;
     }
 
     public static void main(String[] args) {

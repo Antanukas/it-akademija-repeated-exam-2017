@@ -8,10 +8,13 @@ import lt.itakademija.repository.SequenceGenerator;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import javax.transaction.Transactional;
 
 import static org.hamcrest.CoreMatchers.notNullValue;
 
@@ -46,6 +49,7 @@ public class SpringConfigurationTask {
         });
     }
 
+    @Transactional
     private void assertSpringBeanExists(Class<?> beanClass) {
         Assert.assertThat(applicationContext.getBean(beanClass), notNullValue());
     }
